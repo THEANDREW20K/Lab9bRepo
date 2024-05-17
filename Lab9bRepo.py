@@ -22,12 +22,37 @@ params = {1:(1, 2, 3), 2:(1, 2, 3), 3:(1, 2, 3)}
  
 #maybe I could cycle through the tuples to produce unique output? 
 
+#examining some of the professor's code:
+    
+    def locate_neighbors(self, loc):
+       """given a location, return a list of all the patches that count as neighbors"""
+       include_corners = True # a keyword argument
+
+       x, y = loc  #how does the loc thing work?
+       cardinal_four = [(x+1, y), (x-1, y), (x, y+1), (x, y-1)]
+       #I think this is meant to allow for variation in the coordinates? 
+       if include_corners:
+           corner_four = [(x+1, y+1), (x+1, y-1), (x-1, y+1), (x-1, y-1)]
+           neighbors = cardinal_four + corner_four
+      #testing out adding these objects
+       else:
+           neighbors = cardinal_four
+
+#the test
+cardinal_four = [(x+1, y), (x-1, y), (x, y+1), (x, y-1)]
+
+corner_four = [(x+1, y+1), (x+1, y-1), (x-1, y+1), (x-1, y-1)]
+neighbors = cardinal_four + corner_four
+#perhaps these can only be added as local variables
+
+
 class Agent():
     def _init_(self):
        pass
    
     def move(self):
-        
+       if params != 1: 
+        return("move")
        pass
    
     def locate_empty_path(self):
